@@ -1,6 +1,6 @@
 
 
-// Semantic color scheme
+// Semantic color scheme  
 $theme-colors: (
   primary: #000000,
   secondary: #eeeeee,
@@ -8,8 +8,8 @@ $theme-colors: (
   info: #00fbff,
   warning: #ffc107,
   danger: #dc3545,
-  light: #292bee,
-  dark: #eeeeee
+  light: #f8f9fa,
+  dark: #484d53
 );
 
 // Options
@@ -28,21 +28,16 @@ $enable-print-styles:       true !default;
 //
 // Theme settings.
 
-$body-bg: #ffffff;
-
-
-
-$body-color: #000000;
-
-
+$body-bg: white;
+$body-color: #292b2c;
 $body-color-inverse: invert($body-color) !default;
-$link-color: #007bff;
-
+$link-color: #00b0eb;
 
 $font-family-base: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $headings-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 
-$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem;
+ // Assumes the browser default, typically `16px`
 $font-size-h1: 2.5 * $font-size-base;
 $font-size-h2: 2 * $font-size-base;
 $font-size-h3: 1.75 * $font-size-base;
@@ -56,6 +51,7 @@ $display3-size: 4.5 * $font-size-base;
 $display4-size: 3.5 * $font-size-base;
 
 $border-radius: .25rem;
+
 
 
 @import 'bootstrap-4.0.0-beta.1';
@@ -94,12 +90,43 @@ body > * {
     left: 0px;
     top: 0px; 
     pointer-events:none;
-    background: linear-gradient(to top , map-get($theme-colors, 'dark') 0%, transparent 100%);
-
+    background: linear-gradient(to top, map-get($theme-colors, 'dark') 0%, transparent 100%);
   }
 }
 
 
-.style {
+body, html {
+  height:100%;
+}
 
+.h-100 {
+  min-height: 100%;
+}
+
+nav.navbar {
+    z-index: 10000;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 1);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:active, .nav-item.current {
+    color: rgba(0, 0, 0, 0.5);
+  	font-weight: 900;
+}
+
+.dropdown-item.current, .dropdown-item:active {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+  	font-weight: 900;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
 }
