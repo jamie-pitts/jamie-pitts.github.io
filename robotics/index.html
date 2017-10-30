@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Intelligent Robotics - Team Raj</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="#top">Top</a></li>
+					<li><a href="#task">Task</a></li>
+					<li><a href="#solution">Solution</a></li>
+					<li><a href="#improvements">Improvements</a></li>
+					<li><a href="#advice">Advice</a></li>					
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			<div class="wrapper wrapper-style1 wrapper-first">
+				<article class="container" id="top">
+					<div class="row">
+						<div class="4u">
+							<span class="me image image-full"><img src="images/robot.jpg" alt="Our Robot" /></span>
+						</div>
+						<div class="8u">
+							<header>
+								<h1>Intelligent Robotics: <strong>Team Raj</strong></h1>
+							</header>
+							<strong>Team Members:</strong>
+								<ul>
+									<li>• Jamie Pitts</li>
+									<li>• Alex Maley</li>
+									<li>• Sean Bastable</li>
+								</ul>
+							<strong>Intelligent Robotics Module</strong><br>
+							<span>
+							The module was worth 20 credits, took place in the first semester, and consisted of 100% coursework which 
+							was divided into three exercises; Moving the robot around (10%), Localisation (30%), and 'Call a Meeting' (60%). <br>
+							The first exercise was used to familiarise ourselves with ROS (Robot Operating System), which is used to control 
+the robot. We had to use the robots laser data to be able to make the robot explore around the lower ground floor of the computer science building without bumping into 
+any obstacles. This exercise also taught us how to use Stage to simulate our programme in (without having to physically run the robot), and RVIZ which is a package to 
+visualise different robot data, such as the laser data in a graphical form. <br>
+							In the localisation exercise we had to implement our own version of <a href="http://en.wikipedia.org/wiki/Monte_Carlo_localization">
+AMCL (Adaptive Monte Carlo Localisation)</a>, which uses a particle filter on a pre-defined map for the robot to find its location. This exercise was mainly experiment based,
+and we had to perform a large amount of experiments; ranging from detecting the distance to different materials with the laser, to testing how far the robot travelled, compared
+to what it thought it had travelled. <br>
+							For the final task, we had to make our robot create a meeting in an empty room, and then find people to attend it. This task had the most
+time dedicated to it, and was worth a large amount of the module. Not only did it consist of us programming the robot for the task, but we also had to do; experiments, write up a report, and create
+a website. We will talk about this task more in the following sections.
+							</span>
+							
+						</div>
+					</div>
+				</article>
+			</div>
+
+		<!-- The Task -->
+			<div class="wrapper wrapper-style2">
+				<article id="task" class="container">
+				<div class="container" align="center">
+					<header>
+						<h2>The Task: 'Call a Meeting'</h2>						
+					</header>
+				</div>
+					<div class="row" align="left">	
+						<div class="8u">
+						<!--<div class="container" align="left">-->
+							<span>The final exercises task was to 'call a meeting' with the robot, taken from the 
+							<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.92.5086&rep=rep1&type=pdf"> 1996 AAAI Mobile Robot 
+							Competition and Exhibition</a>. The meeting had to take place in a mock office environment, which was the lower ground floor of the Computer Science building, with
+							the tables and chairs removed, and two rooms created in the void area. The robot had a time limit of 15 minutes to complete the task
+							fully from the beginning to having both the participants in the meeting room at the end.<br> We had to make the robot fully autonomously; 
+							<ul>
+							<li>• Find its position in the starting area -> Using localisation</li>
+							<li>• Find an empty room -> Use people detection to make sure that there is no people in the room</li>
+							<li>• Go and find two participants for the meeting (separately) -> Using people detection whilst travelling around</li>
+							<li>• Ask the participants if they wished to attend the meeting -> Get the detected person to respond with either a yes or no</li>
+							<li>• If participant responded yes, guide them back to the meeting room </li>
+							</ul>
+							</span>
+						</div>
+						<div class="4u">
+							<span class="image "><img src="images/Meeting.png" alt="Meeting Map" /></span>
+							<span><i>The map provided of the environment for the task</i></span>
+						</div>
+					</div>
+				</article>
+			</div>
+			
+		<!-- The Solution -->
+			<div class="wrapper wrapper-style2">
+			<article id="solution" class="container">
+				<div class="container" align="center">
+						<header>
+							<h2>Our Solution</h2>						
+						</header>
+				</div>
+					<div class="row" align="left">						
+						<div class="8u">							
+							<span>We decided to solve the task using a modular approach - splitting the task into several smaller key components (nodes), this gave our solution a 
+							great deal of flexibility, allowing for nodes to be swapped out or modified separately without affecting any other nodes. We used a State Machine created 
+							in Python to allow for the interaction and flow of these nodes (The state machine diagram can be seen to the right). <p>
+							<h4> Initialise </h4>
+								This was a simple state to just check that all the correct nodes have been launched and are currently running. If all the nodes are running then it will
+								move to the next state, else it will wait for all the necessary nodes to be started. <p>
+							<h4> Localise </h4>
+								In this state, we localise the robot using AMCL (Adaptive <a href="http://en.wikipedia.org/wiki/Monte_Carlo_localization"> Monte Carlo localisation</a>). This
+								was included in the ROS Navstack. An initial 'estimated pose' is set by us using RVIZ, and then the robot uses its laser and odometry readings to update where
+								it is in relation to the supplied map. This works as a particle filter, by at first setting an initial amount of particles around the estimated pose, and then 
+								as the robot gets new data (via odometry and laser in this case), the old set of particles are removed and replaced by a new set. The new set of particles is 
+								decided by which ones are more likely to be where the robot currently is, and so eventually the particles condense down from a large cloud into a small space, in
+								which we can assume the robot is currently in. To get new updated data for the robots localisation, we tell it to move around to randomly generated points on the map.<p>
+							<h4> Find Closest Room </h4>
+								Once the amount of particles has condensed down by a given threshold, we can get an estimated position of where the robot currently is on the map. We then calculate
+								the Euclidean distance between this estimated position, and the position of the two rooms, which ever distance is lowest is the room we wish to travel to, to maximise
+								efficiency.<p>
+							<h4> Move To Room </h4>
+								Given a room number (in this case '1' or '2'), we use the Move Base PRM (<a href="http://en.wikipedia.org/wiki/Probabilistic_roadmap_method">Probabilistic Road Map</a>),
+								which is also included in the ROS Navstack. The main of the PRM is to generate a path from a starting point (where the robot currently is), to a given goal (the target 
+								room we wish to move to). This is implemented by creating a series of random points on the map which are then checked if they are valid for the robot to move to (not a 
+								obstacle, and within the correct boundary). These points are then connected together using graph search to try to find the shortest distance from the start goal to the 
+								end goal. We set a number of goals inside a room for the robot to move to, so if there was an obstacle in the way of a goal (e.g. someone standing there, or a table/chair),
+								then the robot would try to move to the next goal, so it was less likely to fail.<p>
+							<h4> Check Empty </h4>
+								To check the room that we had travelled to was empty; we moved the robot to different points in the room and used our person detection algorithm to check for people at
+								each point for a given amount of time. If at any point a person was detected, the robot would stop checking for people in that room, and then move onto the next room to 
+								check if that is empty or not, this will keep repeating until an empty room is found. <br>
+								Our person detection algorithm used the robots Hokuyo laser scanner, to look for a pair of legs. A pair of legs always has a similar pattern; a kind of 'W' shape, where 
+								you have a: maximum-minimum-maximum-minium-maximum pattern, where the two minimums are the legs, and the maximum between is the space in-between the legs. 
+								<span class="image "><img src="images/LegsMap.png" alt="Legs on Map" /></span>
+								<span><i>What a persons legs look like in front of the robots laser scanner at different positions of the map. The persons legs are highlighted with a red box.</i></span><br>
+								<span class="image "><img src="images/LaserPersonLabelled.bmp" alt="Legs" /></span><br>
+								<span><i>The 'W' max-min-max-min-max pattern of the legs. The red circle indicates the laser scanner from the robot, with the red lines being laser beams (simplified to
+								only show five laser beams).</i></span>
+								
+							<p>
+							<h4> Explore </h4>
+								Once a room was found to be empty, the robot would leave the room and follow a route around the lower ground floor of the building that we had pre set (using Move Base PRM). 
+								Whilst moving around, the robot will be continuously looking for people using our person detection algorithm (described above), if a person is detected it will check to make
+								sure they are not inside of a room already, and then move on to the move to person state. 
+							<p>
+							<h4> Move To Person </h4>
+								Once a person has been detected from exploring, the robot will plan a path in front of the person using the move base PRM. The location of the person is gathered by creating
+								a transform using the laser distance to the detected legs.
+							<p>
+							<h4> Ask Question </h4>
+								Once in front of the detected person, the robot will verbally ask if the person would like to attend the meeting (using ROS soundplay and <a href="http://www.cstr.ed.ac.uk/projects/festival/">
+								Festival Speech Synthesis System</a>), and a GUI will appear on the laptop for the person to give a response (yes or no). If a yes is given the robot will move onto the guide to 
+								room state, if the no option is selected, the robot will continue exploring and searching for people. If however there is no response (maybe the robot didn't correctly detect a human),
+								a time out happens and the robot will blacklist the area that it thought there was a detected person for a set amount of time, so not to go back there again.
+							<p>
+							<h4> Guide To Room </h4>
+								If the person selects 'yes' on the GUI, then the robot will plan a route to the centre of the room that the meeting is to take place in (using move base PRM). It will then verbally ask the
+								person to follow them and drive to the room.
+							<p>
+							<h4> Check Enough People </h4>
+								Once the robot arrives at the meeting room with the person, a person counter is incremented to check how many people are in the room. If it is less than 2, then the robot will go back to the
+								explore state and search for more attendees to the meeting. If there is 2 people now in the room, the program will terminate and the meeting can take place.
+							</span>
+							
+						</div>
+						<div class="4u">
+							<span class="image image-full"><img src="images/state_machine.jpg" alt="State Machine Diagram" /></span>
+						</div>
+					</div>
+				</article>
+			</div>	
+			
+		<!-- Improvements -->
+			<div class="wrapper wrapper-style2">
+				<article id="improvements">
+					<header>
+						<h2>Possible Improvements</h2>						
+					</header>
+					<div class="container" align="left">
+						<span>Due to the time constraints we had with this exercise, there were a couple of improvements/extensions that we would of liked to have been able to add to our system:
+						<ul>
+						<li>• Using a Kinect sensor to be able to detect people using face detection, and then using the Kinect's depth sensor to be able to work out how far away the person is</li>
+						<li>• When guiding the person back to the room, check using a camera that the person is still following the robot</li>
+						<li>• A machine learning approach for laser/image detection of peoples legs</li>
+						</ul>
+						</span>
+					</div>
+				</article>
+			</div>
+			
+		<!-- Advice -->
+			<div class="wrapper wrapper-style2">
+				<article id="advice">
+					<header>
+						<h2>Advice to Future Students</h2>						
+					</header>
+					<div class="container" align="left">
+						<span>The module itself was hard, compared to modules we had previously taken. Be prepared to do extra background research, and to spend a lot of 
+						time in the Computer Science labs. Some tips to take into consideration are:</span>
+						<ul>
+						<li><b>• Always charge laptop + robot batteries when not running the robot</b> we found our laptop battery would die extremely quickly after being charged, which
+						was extremely irritating whilst trying to test the robot as we had to keep waiting for the laptop to become charged again before we could
+						test a new piece of code. </li>
+						<li><b>• Remember that the time is limited</b> don't be to ambitious with what you want to do, set yourself realistic goals. We found most things don't always work
+						for the first time, as different sensors can be unpredictable, meaning code can take a while to tweak to work as expected.</li>
+						<li><b>• Tweak the parameters!</b> if using any of the Navstack components such as move base or AMCL, make sure to play around with the parameters, as we found this
+						could dramatically change the behaviour of the robot.</li>
+						<li><b>• Use RVIZ and Stage</b>, stage can be great to save time when testing trivial tasks, rather than having to go through setting up the robot, however make sure 
+						you do actually test it on the robot as robots are unpredictable! RVIZ is great if you need to visualise something for debugging, such as the robots laser readings, 
+						or the path that the robot has planned to move to</li>
+						<li><b>• Experiments!</b>, remember to experiment on any parameters you have set, and different approaches you have used. Make sure each experiment is set out correctly
+						and has the relevant sub headings, and all results tables have the correct measurements in. (We managed to loose quite a few marks by having the experiments done, but not 
+						having sub headings!). </li>
+						</ul>
+					</div>
+				</article>
+			</div>
+
+		<!-- Footer -->
+			<div class="wrapper wrapper-style4">
+				<article id="footer" class="container small">
+					<footer>
+						<ul id="copyright">
+							<li>&copy; 2013 Team Raj; Jamie Pitts, Alex Maley, Sean Bastable</li>
+							<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li> 
+						</ul>
+					</footer>
+				</article>
+			</div>
+
+
+	</body>
+</html>
