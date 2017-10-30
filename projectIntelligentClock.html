@@ -1,0 +1,121 @@
+<html><head>
+		<title>Intelligent Alarm Clock - Projects - Jamie Pitts</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Ubiquitous intelligent alarm clock, project by Jamie Pitts">
+		<meta name="keywords" content="jamie pitts personal website projects final year project java university of birmingham intelligent clock ubiquitous artificial intelligent intelligence" />
+		<meta name="author" content="Jamie Pitts">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="theme.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+		<link rel="manifest" href="ico/manifest.json">
+		<link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#a8a8a8">
+		<meta name="theme-color" content="#ebebeb">
+	</head><body class="">
+		<nav class="navbar navbar-expand-md navbar-light">
+			<div class="container">
+			  <a class="navbar-brand" href="index.html"><b>Jamie Pitts</b></a>
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			  <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+					</li>
+					<li class="nav-item dropdown current"> 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-folder"></i>&nbsp;Projects</a> 
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+							<a class="dropdown-item" href="projectGigTrack.html">Android App: GigTrack</a> 
+							<a class="dropdown-item" href="projectGuessTheHorse.html">Android App: 'Guess The Horse' Quiz</a> 
+							<a class="dropdown-item" href="projectFireFlySim.html">Fire Fly Simulator</a> 
+							<a class="dropdown-item" href="http://www.jamiepitts.com/robotics" target="_blank">Intelligent Robotics (External Link)</a> 
+							<a class="dropdown-item current" href="projectIntelligentClock.html">Ubiquitous Computing for an Intelligent Alarm Clock</a> 
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="cv.html"><i class="fa fa-fw fa-file-text"></i>&nbsp;C.V.</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html"><i class="fa fa-fw fa-envelope"></i>&nbsp;Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.linkedin.com/pub/jamie-pitts/85/41/434" target="_blank"><i class="fa fa-fw fa-linkedin"></i>&nbsp;LinkedIn</a>
+					</li>
+				</ul>				
+			  </div>
+			</div>
+		</nav>
+		
+		<div class="p-0">
+			<div class="container bg-secondary">
+			  <div class="row">
+				<div class="col-md-12 p-5" style="">
+					<h2>Ubiquitous Computing for an Intelligent Alarm Clock</h2>
+		
+					<p>As part of my university final year project, I created both the software and hardware for an 'intelligent alarm clock', along with a 80 page report and a presentation/demonstration.</p>
+				
+					<p>	Taken (partly) from the reports abstract: "Ubiquitous computing is the concept of computers appearing everywhere, anywhere, and being accessible all the time. More specifically it involves taking everyday objects and then 'computerising' them. The goal of this project was to computerise a standard alarm clock, it involved allowing the alarm clock to be connected 24/7 to the internet and be able to perform a number of intelligent tasks, such as lighting up a specific colour when a new email is received. The aim was to create a device that is both well functioning and useful to everyday life." </p>
+					
+					<p>	The project incorporated the use of a Raspberry Pi, which was wired up to RGB LED's, switches and a motor, which was all placed inside of the pre-brought alarm clock. I wrote Java software which was to be run on the Pi which allowed the Pi to manipulate and control the alarm clock. Another piece of 'client' software was wrote which allowed for it to connect to the software running on the Pi to be able to change settings, such as when to sound the alarm or to configure an email alert. Further functionality was added such as to listen and understand Tweets from the owner of the clock so to set an alarm, for example 'clock set an alarm for 9am tomorrow and flash green' would make the clock save the event. Throughout the project methods such as HCI design, unit + user testing, and prototyping was used. </p>
+								
+					<a href="img/clock/time.JPG" data-fancybox="group" data-caption="The clock displaying the current time; 1:25 (red indicates the hour, green the minutes)">
+						<img src="img/clock/time_s.JPG" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/wiring.JPG" data-fancybox="group" data-caption="The inner wiring of the clock">
+						<img src="img/clock/wiring_s.JPG" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/interface-finished.png" data-fancybox="group" data-caption="The client interface for the clock, allowing for alarms and reminders to be set">
+						<img src="img/clock/interface-finished_s.png" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/interface-email.png" data-fancybox="group" data-caption="Interface showing how email notifications can be set">
+						<img src="img/clock/interface-email_s.png" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/interface-calendar.png" data-fancybox="group" data-caption="Interface showing how you can connect the clock to your Google Calendar">
+						<img src="img/clock/interface-calendar_s.png" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/interface-twitter.png" data-fancybox="group" data-caption="Interface showing how you can connect to your Twitter account">
+						<img src="img/clock/interface-twitter_s.png" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/clock-alarm.JPG" data-fancybox="group" data-caption="An alarm going off on the clock (alarm bell is moving, and the red lights are flashing on and off)">
+						<img src="img/clock/clock-alarm_s.JPG" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/clock-button-stock.JPG" data-fancybox="group" data-caption="The clock displaying that the stocks of Google are rising (green for rising), when the user holds down the button">
+						<img src="img/clock/clock-button-stock_s.JPG" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/prototype.JPG" data-fancybox="group" data-caption="An interface prototype">
+						<img src="img/clock/prototype_s.JPG" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/clock/clock-hi-labelled.png" data-fancybox="group" data-caption="High-fidelity prototype of the alarm clock">
+						<img src="img/clock/clock-hi-labelled_s.png" alt="" style="border-style: solid; color: black; margin-bottom:0.2rem;"/>
+					</a>
+				  
+					<p></p>
+					<p>A video demonstration of the clock working: </p>
+					<iframe width="860" height="515" src="https://www.youtube.com/embed/k_0UcLVhKRM" frameborder="0" allowfullscreen></iframe>
+					</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+		
+		<div class="text-white p-0">
+			<div class="container">			  
+			  <div class="row">
+				<div class="col-md-12 mt-3 text-center">
+				  <p class="text-right text-primary">© Copyright 2017</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+	  
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+	
+</body></html>

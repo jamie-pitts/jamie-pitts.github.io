@@ -130,3 +130,9 @@ nav.navbar {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 1200px) {
+	.p-5 {
+		padding: 1.25rem !important;
+	}
+}

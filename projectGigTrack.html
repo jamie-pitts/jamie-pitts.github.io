@@ -1,0 +1,137 @@
+<html><head>
+		<title>GigTrack - Projects - Jamie Pitts</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="GigTrack Android application, project by Jamie Pitts">
+		<meta name="keywords" content="jamie pitts personal website android app application mobile gig track concert tracker live event" />
+		<meta name="author" content="Jamie Pitts">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="theme.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+		<link rel="manifest" href="ico/manifest.json">
+		<link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#a8a8a8">
+		<meta name="theme-color" content="#ebebeb">
+	</head><body class="">
+		<nav class="navbar navbar-expand-md navbar-light">
+			<div class="container">
+			  <a class="navbar-brand" href="index.html"><b>Jamie Pitts</b></a>
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			  <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
+					</li>
+					<li class="nav-item dropdown current"> 
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-folder"></i>&nbsp;Projects</a> 
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+							<a class="dropdown-item current" href="projectGigTrack.html">Android App: GigTrack</a> 
+							<a class="dropdown-item" href="projectGuessTheHorse.html">Android App: 'Guess The Horse' Quiz</a> 
+							<a class="dropdown-item" href="projectFireFlySim.html">Fire Fly Simulator</a> 
+							<a class="dropdown-item" href="http://www.jamiepitts.com/robotics" target="_blank">Intelligent Robotics (External Link)</a> 
+							<a class="dropdown-item" href="projectIntelligentClock.html">Ubiquitous Computing for an Intelligent Alarm Clock</a> 
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="cv.html"><i class="fa fa-fw fa-file-text"></i>&nbsp;C.V.</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact.html"><i class="fa fa-fw fa-envelope"></i>&nbsp;Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.linkedin.com/pub/jamie-pitts/85/41/434" target="_blank"><i class="fa fa-fw fa-linkedin"></i>&nbsp;LinkedIn</a>
+					</li>
+				</ul>				
+			  </div>
+			</div>
+		</nav>
+		
+		<div class="p-0">
+			<div class="container bg-secondary">
+			  <div class="row">
+				<div class="col-md-12 p-5" style="">
+					<h2>GigTrack (Android App)</h2>
+		
+					<p>Create and store a list of concerts/live events you have attended. Built in Java, consisting of both a RESTful back-end API, and front end Android app. </p>
+				
+					<p>	Taken from the play store: <br>
+						<i style="font-size:0.9rem">Go to lots of concerts? See many bands play live? Then this app's for you!<br>
+							Store all the performances you have seen live, to create your own gig list.
+							<p>
+							Allows for you to see how many times you've seen a particular artist, which venues you attend the most, and much more! Find out what the date was when you last saw your favourite band, who else you saw play with them that day, plus store any memorable notes you may have from that performance.
+							</p>
+							Search through our database to find the gig you attended, or if you can't find it, then no problem create your own!
+							</p>
+							Visualise your gig stats with pie and bar charts, and see the different venues you have attended on a map </i>
+					</p>
+					
+					<p>I created this app primarily for myself - I had been using a simple notepad file which had a lost of all the different bands/artists I had seen before, with the number of times I had seen them, and so wanted something a bit easier to use. It also gave me a good opportunity to learn more in depth Android design + programming skills, and also allow for me to create my own RESTful API - situated on the cloud.
+					</p>
+					I made use of Android's latest 'Material Design' pattern, which I believe gives the user a nice fluid consistent experience when using the app. The app incorporates technologies such as; Google Maps, Google Billing, AdMob, and SQLite - which I learnt a great deal about during the development process. The back-end is entirely Java based, running on Tomcat 7, using Spring Beans and persisting to a MySQL database. All communication between the back-end and the Android app is done using JSON, which allowed for easy serialization and de-serialization and makes use of the RESTful communication pattern.
+					</p>
+					
+					<a href="img/gigtrack/full_size/1.png" data-fancybox="group" data-caption="Home Screen">
+						<img src="img/gigtrack/thumb/1.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/2.png" data-fancybox="group" data-caption="Sign In">
+						<img src="img/gigtrack/thumb/2.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/3.png" data-fancybox="group" data-caption="Registration">
+						<img src="img/gigtrack/thumb/3.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/4.png" data-fancybox="group" data-caption="Material Nav Bar">
+						<img src="img/gigtrack/thumb/4.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/5.png" data-fancybox="group" data-caption="Searching the API for a Gig">
+						<img src="img/gigtrack/thumb/5.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/6.png" data-fancybox="group" data-caption="Creating a Custom Gig">
+						<img src="img/gigtrack/thumb/6.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/7.png" data-fancybox="group" data-caption="List of Gigs, Sortable by Date/Artist/Location">
+						<img src="img/gigtrack/thumb/7.png" alt="" /style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/8.png" data-fancybox="group" data-caption="Artists Seen (List)">
+						<img src="img/gigtrack/thumb/8.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/9.png" data-fancybox="group" data-caption="Artists Seen (Bar Chart)">
+						<img src="img/gigtrack/thumb/9.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/10.png" data-fancybox="group" data-caption="Venues Visited (Plotted on a Map)">
+						<img src="img/gigtrack/thumb/10.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/11.png" data-fancybox="group" data-caption="Venues Visited (Pie Chart)">
+						<img src="img/gigtrack/thumb/11.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+				  
+					<p></p>
+					<p>App available on the Google Play Store:</p>
+				
+					<a href='https://play.google.com/store/apps/details?id=com.jamiepitts.gigtrack&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-ap-PartBadge-Mar2515-1'><img alt='Android app on Google Play' src='https://play.google.com/intl/en_us/badges/images/apps/en-play-badge.png' width="150"/></a>
+					</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+		
+		<div class="text-white p-0">
+			<div class="container">			  
+			  <div class="row">
+				<div class="col-md-12 mt-3 text-center">
+				  <p class="text-right text-primary">© Copyright 2017</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+	  
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+	
+</body></html>
