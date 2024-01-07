@@ -30,7 +30,7 @@
 					<li class="nav-item dropdown current"> 
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-folder"></i>&nbsp;Projects</a> 
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
-							<a class="dropdown-item current" href="projectGigTrack.html">Android App: GigTrack</a> 
+							<a class="dropdown-item current" href="projectGigTrack.html">Android/iOS App: GigTrack</a> 
 							<a class="dropdown-item" href="projectGuessTheHorse.html">Android App: 'Guess The Horse' Quiz</a> 
 							<a class="dropdown-item" href="projectFireFlySim.html">Fire Fly Simulator</a> 
 							<a class="dropdown-item" href="http://www.jamiepitts.com/robotics" target="_blank">Intelligent Robotics (External Link)</a> 
@@ -55,11 +55,11 @@
 			<div class="container bg-secondary">
 			  <div class="row">
 				<div class="col-md-12 p-5" style="">
-					<h2>GigTrack (Android App)</h2>
+					<h2>GigTrack (Android + iOS App)</h2>
 		
-					<p>Create and store a list of concerts/live events you have attended. Built in Java, consisting of both a RESTful back-end API, and front end Android app. </p>
+					<p>Create and store a list of concerts/live events you have attended. The backend is built in Java, consisting of both a RESTful back-end API. Whilst the front end is built using native Android and Swift for iOS. </p>
 				
-					<p>	Taken from the play store: <br>
+					<p>	Taken from the Google Play Store: <br>
 						<i style="font-size:0.9rem">Go to lots of concerts? See many bands play live? Then this app's for you!<br>
 							Store all the performances you have seen live, to create your own gig list.
 							<p>
@@ -70,8 +70,39 @@
 							Visualise your gig stats with pie and bar charts, and see the different venues you have attended on a map </i>
 					</p>
 					
-					<p>I created this app primarily for myself - I had been using a simple notepad file which had a lost of all the different bands/artists I had seen before, with the number of times I had seen them, and so wanted something a bit easier to use. It also gave me a good opportunity to learn more in depth Android design + programming skills, and also allow for me to create my own RESTful API - situated on the cloud.
+					<p>I created this app primarily for myself back in 2016 - I had been using a simple notepad file which had a lost of all the different bands/artists I had seen before, with the number of times I had seen them, and so wanted something a bit easier to use. It also gave me a good opportunity to learn more in depth Android design + programming skills, and also allow for me to create my own RESTful API - situated on the cloud.
 					</p>
+					<h5>iOS</h5>
+					The iOS version of the app is built in fully native Swift utilising SwiftUI. This version of the app contains extra features such as a social network where users can connect with other users, follow them and rate + review gigs.
+					</p>
+
+					<a href="img/gigtrack/full_size/ios/1.png" data-fancybox="group" data-caption="Gig List">
+						<img src="img/gigtrack/thumb/ios/1.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/ios/2.png" data-fancybox="group" data-caption="Dark mode support">
+						<img src="img/gigtrack/thumb/ios/2.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/ios/3.png" data-fancybox="group" data-caption="Following user Feed">
+						<img src="img/gigtrack/thumb/ios/3.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/ios/4.png" data-fancybox="group" data-caption="Gig Detail">
+						<img src="img/gigtrack/thumb/ios/4.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/ios/6.png" data-fancybox="group" data-caption="Gig Detail cont.">
+						<img src="img/gigtrack/thumb/ios/6.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+					<a href="img/gigtrack/full_size/ios/5.png" data-fancybox="group" data-caption="Setlist">
+						<img src="img/gigtrack/thumb/ios/5.png" alt="" style="margin-bottom:0.2rem;"/>
+					</a>
+				  
+					<p></p>
+					<p>App available on the Apple App Store:</p>
+				
+					<a href='https://apps.apple.com/app/id1561404938#?platform=iphone'><img alt='Download app on Apple App Store' src='img/app-store-badge.png' width="150"/></a>
+					</p>
+
+
+					<h5>Android</h5>
 					I made use of Android's latest 'Material Design' pattern, which I believe gives the user a nice fluid consistent experience when using the app. The app incorporates technologies such as; Google Maps, Google Billing, AdMob, and SQLite - which I learnt a great deal about during the development process. The back-end is entirely Java based, running on Tomcat 7, using Spring Beans and persisting to a MySQL database. All communication between the back-end and the Android app is done using JSON, which allowed for easy serialization and de-serialization and makes use of the RESTful communication pattern.
 					</p>
 					
@@ -123,7 +154,7 @@
 			<div class="container">			  
 			  <div class="row">
 				<div class="col-md-12 mt-3 text-center">
-				  <p class="text-right text-primary">© Copyright 2021</p>
+				  <p class="text-right text-primary">© Copyright 2024</p>
 				</div>
 			  </div>
 			</div>
