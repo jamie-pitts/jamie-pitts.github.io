@@ -1,10 +1,9 @@
 /* ============================================
    Jamie Pitts — Personal Website
    ============================================
-   Apple-inspired clean aesthetic:
-   light theme, single typeface (Geist), generous
-   whitespace, typography-driven hierarchy, no
-   colour accents — pure black, white, gray.
+   Clean aesthetic: light theme, single typeface (Geist),
+   generous whitespace, typography-driven hierarchy,
+   no colour accents — pure black, white, gray.
 
    Organised by:
    1. Design tokens (colours, fonts, spacing)
@@ -21,7 +20,7 @@
    Edit the values below to re-skin the whole site.
    ============================================ */
 :root {
-  /* — Colour palette: Apple-inspired light theme — */
+  /* — Colour palette: light theme — */
   --color-bg: #fbfbfd;          /* off-white background        */
   --color-surface: #ffffff;     /* pure white card surface     */
   --color-surface-alt: #f5f5f7; /* subtle hover surface        */
@@ -550,7 +549,7 @@ strong {
   gap: var(--space-3);
   overflow-x: auto;
   overflow-y: hidden;
-  margin-bottom: var(--space-3);
+  margin-bottom: 0;
   padding-bottom: var(--space-3);
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -656,22 +655,24 @@ strong {
   );
 }
 
-.scroll-hint {
-  display: inline-flex;
+p.scroll-hint {
+  display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.625rem;
+  justify-content: flex-end;
+  gap: 3px;
+  font-size: var(--text-sm);
   line-height: 1;
   color: var(--color-text-muted);
   margin: 0;
+  padding: 0;
   letter-spacing: 0.01em;
   font-style: italic;
-  opacity: 0.85;
+  opacity: 0.65;
 }
 
-.scroll-hint svg {
-  width: 9px;
-  height: 9px;
+p.scroll-hint svg {
+  width: 7px;
+  height: 7px;
   animation: scrollNudge 2s ease-in-out infinite;
 }
 
@@ -681,12 +682,12 @@ strong {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-hint svg {
+  p.scroll-hint svg {
     animation: none;
   }
 }
 
-/* App store badges */
+/* Store badges */
 .project-stores {
   display: flex;
   gap: var(--space-3);
